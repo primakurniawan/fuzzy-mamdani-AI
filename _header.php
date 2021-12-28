@@ -25,7 +25,7 @@
                     <a href="."><span class="text-primary"><b>Nama Aplikasi</b></span></a>
                 </li>
                 <li>
-                    <a href="penjelasan.php">Penjelasan</a>
+                    <a href="penjelasan.php">Penjelasan aja</a>
                 </li>
                 <li>
                     <a href="carakerja.php">Cara Kerja</a>
