@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1>WELCOME</h1>
-        <h2><b>Selamat Datang di (nama aplikasi)!!</b><br></h2>
+        <h2><b>Selamat Datang di Ricezy!!</b><br></h2>
         <p>Aplikasi ini dibuat untuk memenuhi UAS mata kuliah <b>"KECERDASAN BUATAN (AI)"</b>.<br>
             Kami beranggotakan 3 orang:<br>
             &#8226; Ricky Darmawan Widjanarko (191116003)<br>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Nama Aplikasi</title>
+    <title>Ricezy</title>
     <link rel="stylesheet" href="_assets/css/bootstrap.min.css">
     <link href="_assets/css/simple-sidebar.css" rel="stylesheet">
     <link rel="shortcut icon" href="_assets/img/bakuhantam-icon.png" type="image/x-icon">
@@ -22,7 +22,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="."><span class="text-primary"><b>Nama Aplikasi</b></span></a>
+                    <a href="."><span class="text-primary"><b>Ricezy</b></span></a>
                 </li>
                 <li>
                     <a href="penjelasan.php">Penjelasan</a>
