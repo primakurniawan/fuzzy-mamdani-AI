@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>PENJELASAN</h1>
+        <h1>PENJELASAN</h1><br>
         <h2><b>Pengertian Fuzzy</b><br></h2>
         <p> Fuzzy secara bahasa diartikan sebagai kabur atau samar yang artinya suatu
             nilai dapat bernilai benar atau salah secara bersamaan. Dalam fuzzy dikenal derajat
