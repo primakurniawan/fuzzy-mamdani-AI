@@ -10,7 +10,7 @@
     <title>Ricezy</title>
     <link rel="stylesheet" href="_assets/css/bootstrap.min.css">
     <link href="_assets/css/simple-sidebar.css" rel="stylesheet">
-    <link rel="shortcut icon" href="_assets/img/bakuhantam-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="_assets/img/logo.png" type="image/x-icon">
     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
