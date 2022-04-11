@@ -148,8 +148,8 @@
                             <i class="fas fa-beer"></i></span> <span class="step">
                             <i class="fas fa-plane"></i></span> <span class="step">
                             <i class="fas fa-search-plus"></i></span> <span class="step">
-                            <i class="fas fa-wrench"></i></span><span class="step">
-                            <i class="far fa-life-ring"></i></span>
+                            <i class="fas fa-wrench"></i></span> <span class="step">
+                            <i class="far fa-life-ring"></i> </span>
                     </div>
                     <div class="tab">
                         <h6>Masukkan nama</h6>
