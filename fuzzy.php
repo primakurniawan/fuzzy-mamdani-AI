@@ -3,7 +3,7 @@
 <div class="box">
     <h1>Perhitungan Fuzzy</h1>
     <p>Menghitung debit irigasi tanaman padi<br><br><br></p>
-    <form method="post" action="">
+    <!-- <form method="post" action="">
         <div class="form-group row">
             <label class="col-sm-2">karies</label>
             <div class="col-sm-10">
@@ -87,7 +87,7 @@
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-    </form>
+    </form> -->
 </div>
 
 <?php
@@ -100,5 +100,5 @@ include "_fuzzy.php";
     inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"]);
     echo "</div>";
 
-    include_once('_foother.php');
+
     ?>
