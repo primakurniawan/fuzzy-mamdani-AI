@@ -23,10 +23,6 @@
             border-radius: 10px
         }
 
-        #register {
-            color: #212529
-        }
-
         h1 {
             text-align: center
         }
@@ -78,8 +74,15 @@
         }
 
         #submit {
-            background-color: #bbbbbb;
-            display: none
+            display: none;
+            background-color: #212529;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer
         }
 
         .all-steps {
@@ -112,7 +115,7 @@
 
         .step.finish {
             color: #fff;
-            background: #register;
+            background: #212529;
             opacity: 1
         }
 
@@ -162,7 +165,7 @@
                     <div class="tab">
                         <h6>Orangtua yang memiliki karies ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="karies" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="karies" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1">Kedua orang tua tidak memiliki gigi berlubang</label>
                         </div>
                         <div class="form-check ">
@@ -184,7 +187,7 @@
                     <div class="tab">
                         <h6>Anak yang membutuhkan perawatan khusus ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="perawatanKhusus" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="perawatanKhusus" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1">Tidak ada perawatan khusus</label>
                         </div>
                         <div class="form-check ">
@@ -207,7 +210,7 @@
                         <h6>Anak yang meminum susu botol sebelum tidur
                             dengan susu murni atau ada penambahan gula ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="susuGula" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="susuGula" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1">Susu murni (tidak ada penambahan gula</label>
                         </div>
                         <div class="form-check ">
@@ -230,7 +233,7 @@
                         <h6>Anak yang memiliki konsumsi makanan ringan
                             atau minuman manis lebih dari 3 kali/hari ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="manis" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="manis" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1">1 kali/hari</label>
                         </div>
                         <div class="form-check ">
@@ -253,7 +256,7 @@
                         <h6>Orangtua yang memilki status ekonomi rendah
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ekonomi" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="ekonomi" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1"> > Rp.5.000.000</label>
                         </div>
                         <div class="form-check ">
@@ -278,7 +281,7 @@
                         <h6>Anak yang rutin memeriksa kesehatan gigi secara
                             teratur ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="memeriksaGigi" id="" value="3">
+                            <input checked class="form-check-input" type="radio" name="memeriksaGigi" id="" value="3">
                             <label class="form-check-label" for="inlineRadio1"> Tidak pernah</label>
                         </div>
                         <div class="form-check ">
@@ -304,7 +307,7 @@
                             dokter gigi
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="topikalFLouride" id="" value="3">
+                            <input checked class="form-check-input" type="radio" name="topikalFLouride" id="" value="3">
                             <label class="form-check-label" for="inlineRadio1"> Tidak pernah</label>
                         </div>
                         <div class="form-check ">
@@ -330,7 +333,7 @@
                         <h6>Anak yang menggosok gigi setiap hari dengan
                             pasta gigi fluoride?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sikatGigi" id="" value="3">
+                            <input checked class="form-check-input" type="radio" name="sikatGigi" id="" value="3">
                             <label class="form-check-label" for="inlineRadio1"> Tidak pernah</label>
                         </div>
                         <div class="form-check ">
@@ -357,7 +360,7 @@
                             optimal
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="minumFlour" id="" value="3">
+                            <input checked class="form-check-input" type="radio" name="minumFlour" id="" value="3">
                             <label class="form-check-label" for="inlineRadio1"> Tidak ada sama sekali</label>
                         </div>
                         <div class="form-check ">
@@ -382,7 +385,7 @@
                         <h6>Anak yang baru berimigrasi
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="imigrasi" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="imigrasi" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1"> Tidak pernah berimigrasi</label>
                         </div>
                         <div class="form-check ">
@@ -408,7 +411,7 @@
                         <h6>Anak yang memiliki karang gigi
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="karangGigi" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="karangGigi" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1"> Tidak Ada</label>
                         </div>
                         <div class="form-check ">
@@ -434,7 +437,7 @@
                         <h6>Anak yang memiliki lubang/ tambalan
                             ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="lubangTambal" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="lubangTambal" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1"> Tidak Ada</label>
                         </div>
                         <div class="form-check ">
@@ -459,7 +462,7 @@
                     <div class="tab">
                         <h6>Anak yang memiliki bercak putih pada gigi ?</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="bercakPutih" id="" value="1">
+                            <input checked class="form-check-input" type="radio" name="bercakPutih" id="" value="1">
                             <label class="form-check-label" for="inlineRadio1"> Tidak Ada</label>
                         </div>
                         <div class="form-check ">
@@ -483,7 +486,8 @@
                     </div>
 
                     <div style="overflow:auto;" id="nextprevious">
-                        <div style="float:right;"> <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button>
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button>
                             <button type="submit" id="submit" class="btn btn-sucess"><i class="fa fa-paper-plane"></i></button>
                         </div>
                     </div>
@@ -507,9 +511,11 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("submit").style.display = "inline";
             } else {
-                document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+                document.getElementById("nextBtn").style.display = "inline";
+                document.getElementById("submit").style.display = "none";
             }
             fixStepIndicator(n)
         }
@@ -518,12 +524,8 @@
             var x = document.getElementsByClassName("tab");
             if (n == 1 && !validateForm()) return false;
             x[currentTab].style.display = "none";
-            currentTab = currentTab + n;
-            if (currentTab >= x.length - 1) {
+            currentTab += n;
 
-                document.getElementById("submit").style.display = "block";
-                document.getElementsByClassName("fa-angle-double-right").style.display = "none";
-            }
             showTab(currentTab);
         }
 
@@ -549,6 +551,7 @@
                 x[i].className = x[i].className.replace(" active", "");
             }
             x[n].className += " active";
+
         }
     </script>
 </body>

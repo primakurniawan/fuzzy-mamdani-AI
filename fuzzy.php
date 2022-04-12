@@ -1,8 +1,6 @@
-<?php include_once('_header.php'); ?>
-
 <div class="box">
     <h1>Perhitungan Fuzzy</h1>
-    <p>Menghitung debit irigasi tanaman padi<br><br><br></p>
+    <p>Menghitung Risiko Gigi Berlubang Pada Balita<br><br><br></p>
     <!-- <form method="post" action="">
         <div class="form-group row">
             <label class="col-sm-2">karies</label>
