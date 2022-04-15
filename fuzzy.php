@@ -66,7 +66,9 @@
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
-                    <a class="nav-link" href="#">Tentang</a>
+                    <a class="nav-link" href="about.php">Tentang</a>
+                    <a class="nav-link" href="history.php">Histori Pengguna</a>
+
                 </nav>
             </div>
         </header>
@@ -146,10 +148,21 @@ $karangGigi = (int)$_POST["karangGigi"];
 
 // include database connection file
 include_once("config.php");
+// Check username is exists or not
+$query = "SELECT count(*) as allcount FROM history 
+          WHERE nama='" . $name . "' && umur='" . $age . "' && 
+          karies='" . $karies . "' && imigrasi='" . $imigrasi . "'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result);
+$allcount = $row['allcount'];
 
+// insert new record
+if ($allcount == 0) {
+    $sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil) VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil)";
+    $conn->query($sql);
+}
 // Insert user data into table
-$sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil) VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil)";
-$conn->query($sql);
+
 // if ($conn->query($sql)) {
 //     printf("Record inserted successfully.<br />");
 // }
