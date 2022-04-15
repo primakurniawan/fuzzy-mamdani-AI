@@ -98,18 +98,9 @@
 
         $nilaiy = ((1 * $nilai_rendah) + (2 * $nilai_sedang) + (3 * $nilai_tinggi)) / ($nilai_rendah + $nilai_sedang + $nilai_tinggi);
         // echo "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4>";
-        $tingkat = "";
-        if ($nilaiy <= 1 + (2 / 3)) {
-            $tingkat = 'Rendah';
-            echo "Rendah";
-        } else if ($nilaiy <= 1 + (4 / 3)) {
-            $tingkat = 'Sedang';
-            echo "Sedang";
-        } else {
-            $tingkat = 'Tinggi';
-            echo "Tinggi";
-        }
-        return "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4> <h3>$tingkat</h3>";
+
+        echo "<br><br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4><br>";
+        return $nilaiy;
     }
 
     //fuzzifikasi

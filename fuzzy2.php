@@ -488,13 +488,15 @@
                     <div style="overflow:auto;" id="nextprevious">
                         <div style="float:right;">
                             <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button>
-                            <button type="submit" id="submit" class="btn btn-sucess"><i class="fa fa-paper-plane"></i></button>
+                            <button type="submit" name="Submit" id="submit" class="btn btn-sucess"><i class="fa fa-paper-plane"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>
         var currentTab = 0;

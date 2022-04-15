@@ -53,7 +53,7 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex text-center text-white bg-dark">
 
     <?php
     include "_fuzzy.php";
@@ -77,35 +77,37 @@
             <div id="detail1">
                 <?php
                 $hasil = inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"]);
-                echo "</div>";
-                ?>
+                $tingkat = "";
+                if ($hasil <= 1 + (2 / 3)) {
+                    $tingkat = 'Rendah';
+                } else if ($hasil <= 1 + (4 / 3)) {
+                    $tingkat = 'Sedang';
+                } else {
+                    $tingkat = 'Tinggi';
+                }
 
-                <div>
-                    <?php echo $hasil;
+
+                ?>
+            </div>
+            <div>
+                <p class="h4">
+                    <?php
+                    echo "Nama Balita " . $_POST["fname"]; ?>
+                    <br>
+                    <?php
+                    echo "Umur " . $_POST["dd"] . " Tahun";
                     ?>
-                    <button class="btn btn-primary" type="button" id="detailopen">Lebih Lanjut</button>
-                </div>
+                    <br>
+                    <?php
+                    echo "<h3>Tingkat Resiko Gigi Berlubang $tingkat</h3>"
+
+                    ?>
+                </p>
+                <button class="btn btn-primary" type="button" id="detailopen">Lebih Lanjut</button>
+            </div>
 
 
         </main>
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Modal Header</h2>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the Modal Body</p>
-                    <p>Some other text...</p>
-                </div>
-                <div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>
-            </div>
-
-        </div>
         <footer class="mt-auto text-white-50">
             <p>Aplikasi Menggunakan Metode Fuzzy Mamdina</p>
         </footer>
@@ -123,3 +125,39 @@
 </body>
 
 </html>
+
+<?php
+// Check If form submitted, insert form data into users table.
+$name = $_POST['fname'];
+$age = $_POST['dd'];
+$karies = (int)$_POST["karies"];
+$ekonomi = (int)$_POST["ekonomi"];
+$manis = (int)$_POST["manis"];
+$imigrasi = (int)$_POST["imigrasi"];
+$perawatanKhusus = (int)$_POST["perawatanKhusus"];
+$minumFlour = (int)$_POST["minumFlour"];
+$bercakPutih = (int)$_POST["bercakPutih"];
+$lubangTambal = (int)$_POST["lubangTambal"];
+$sikatGigi = (int)$_POST["sikatGigi"];
+$susuGula = (int)$_POST["susuGula"];
+$topikalFLouride = (int)$_POST["topikalFLouride"];
+$memeriksaGigi = (int)$_POST["memeriksaGigi"];
+$karangGigi = (int)$_POST["karangGigi"];
+
+// include database connection file
+include_once("config.php");
+
+// Insert user data into table
+$sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil) VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil)";
+$conn->query($sql);
+// if ($conn->query($sql)) {
+//     printf("Record inserted successfully.<br />");
+// }
+// if ($conn->errno) {
+//     printf("Could not insert record into table: %s<br />", $conn->errno);
+// }
+$conn->close();
+
+// Show message when user added
+// echo "History added successfully. <a href='index.php'>View Users</a>";
+?>
