@@ -53,7 +53,7 @@
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
-                    <a class="nav-link" href="#">Tentang</a>
+                    <a class="nav-link" href="about.php">Tentang</a>
                     <a class="nav-link" href="history.php">Histori Pengguna</a>
                 </nav>
             </div>

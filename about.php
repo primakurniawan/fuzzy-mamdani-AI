@@ -1,10 +1,3 @@
-<?php
-// Create database connection using config file
-include_once("config.php");
-
-// Fetch all users data from database
-$conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
-?>
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -31,71 +24,47 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
         }
 
         body {
-            /* background-image: url('./_assets/img/coverdr.svg'); */
+            background-image: url('./_assets/img/coverdr.svg');
             background-size: cover;
             background-size: 100% 100%;
-            background-color: #E6E6FA;
+            /* background-color: #E6E6FA; */
         }
 
         .lead {
             color: coral;
         }
 
-        h4 {
+        h1 {
             color: coral;
         }
     </style>
 
 
     <!-- Custom styles for this template -->
-    <link href="./_assets/css/coverhistory.css" rel="stylesheet">
+    <link href="./_assets/css/cover.css" rel="stylesheet">
 </head>
 
-<body class="d-flex text-center text-white bg-dark">
+<body class="d-flex h-100 text-center text-white bg-dark">
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
                 <h3 class="float-md-start mb-0">Sistem Pakar</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link" href="index.php">Beranda</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
-                    <a class="nav-link" href="about.php">Tentang</a>
-                    <a class="nav-link active" aria-current="page" href="history.php">Histori Pengguna</a>
+                    <a class="nav-link active" href="about.php">Tentang</a>
+                    <a class="nav-link" href="history.php">Histori Pengguna</a>
                 </nav>
             </div>
         </header>
-        <h4>
-            <br>
-            <br>
 
-            Tabel Histori Pengguna Aplikasi Sistem Pakar<br>
-            <br>
-            <br>
-        </h4>
-
-        <!-- <main class="px-3"> -->
-        <table class="table table-sm table-dark">
-
-            <tr>
-                <th>#</th>
-                <th>Nama</th>
-                <th>Umur</th>
-                <th>Tingkat Resiko Gigi Berlubang</th>
-                <th>Aksi</th>
-            </tr>
-            <?php
-            while ($history_data = mysqli_fetch_array($conn)) {
-                echo "<tr>";
-                echo "<td>" . $history_data['id'] . "</td>";
-                echo "<td>" . $history_data['nama'] . "</td>";
-                echo "<td>" . $history_data['umur'] . "</td>";
-                echo "<td>" . $history_data['hasil'] . "</td>";
-                echo "<td><a href='detail.php?id=$history_data[id]'>Detail</a>";
-            }
-            ?>
-        </table>
-        <!-- </main> -->
+        <main class="px-3">
+            <h1> Aplikasi Sistem Pakar</h1>
+            <p class="lead">Aplikasi ini dibuat oleh Frisela Natalida NIM : 181401107</p>
+            <p class="lead">Sebagai Tugas Akhir Program Studi S-1 Ilmu Komputer Fasilkom-TI USU
+            </p>
+        </main>
 
         <footer class="mt-auto text-white-50">
             <p>Aplikasi Menggunakan Metode Fuzzy Mamdina</p>

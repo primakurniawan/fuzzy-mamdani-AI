@@ -53,7 +53,7 @@
 
 </head>
 
-<body class="d-flex text-center text-white bg-dark">
+<body class="d-flex h-100 text-center text-white bg-dark">
 
     <?php
     include "_fuzzy.php";

@@ -211,7 +211,7 @@
                             dengan susu murni atau ada penambahan gula ?</h6>
                         <div class="form-check">
                             <input checked class="form-check-input" type="radio" name="susuGula" id="" value="1">
-                            <label class="form-check-label" for="inlineRadio1">Susu murni (tidak ada penambahan gula</label>
+                            <label class="form-check-label" for="inlineRadio1">Susu murni (tidak ada penambahan gula)</label>
                         </div>
                         <div class="form-check ">
                             <input class="form-check-input" type="radio" name="susuGula" id="" value="2">
