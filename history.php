@@ -44,6 +44,18 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
         h4 {
             color: coral;
         }
+
+        table {
+            counter-reset: rowNumber;
+        }
+
+        table tr td:first-child::before {
+            content: counter(rowNumber);
+            min-width: 1em;
+            margin-right: 0.5em;
+            counter-increment: rowNumber;
+
+        }
     </style>
 
 
@@ -87,11 +99,12 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
             <?php
             while ($history_data = mysqli_fetch_array($conn)) {
                 echo "<tr>";
-                echo "<td>" . $history_data['id'] . "</td>";
+                echo "<td> </td>";
                 echo "<td>" . $history_data['nama'] . "</td>";
                 echo "<td>" . $history_data['umur'] . "</td>";
                 echo "<td>" . $history_data['hasil'] . "</td>";
                 echo "<td><a href='detail.php?id=$history_data[id]'>Detail</a>";
+                echo "<tr>";
             }
             ?>
         </table>
