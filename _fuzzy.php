@@ -1,5 +1,3 @@
-    <h4>Output</h4>
-    <p>Outputnya adalah Resiko</p>
     <br>
     <?php
     function nilaiGrafik($nilai)
@@ -12,7 +10,8 @@
 
     function hasilfuzzifikasi($nilaiRendah, $nilaiSedang, $nilaiTinggi)
     {
-        echo "<h4><b>Hasil Fuzzifikasi: </b></h4>";
+
+        echo "<br><h4><b>Hasil Fuzzifikasi: </b></h4>";
         echo "<p><b>Nilai Fuzzy Ekonomi OR Imigrasi: </b></p>";
         nilaiGrafik($nilaiRendah);
         echo "<p><b>Nilai Fuzzy Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal: </b></p>";
@@ -30,7 +29,7 @@
 
         hasilfuzzifikasi($nilaiRendah, $nilaiSedang, $nilaiTinggi);
 
-        echo "<h4><b>Rules yang digunakan: </b></h4>";
+        echo "<br><h4><b>Rules yang digunakan: </b></h4>";
 
         $x = 0;
         $no = 1;
@@ -87,25 +86,30 @@
                 $nilai_tinggi = max($minimal[$l], $nilai_tinggi);
             }
         }
-        echo "<h4><b>Nilai Fuzzy Output: </b></h4>";
+        echo "<br><h4><b>Nilai Fuzzy Output: </b></h4>";
         echo "<p>Resiko Rendah(" . $nilai_rendah . ")</p>";
         echo "<p>Resiko Sedang(" . $nilai_sedang . ")</p>";
         echo "<p>Resiko Tinggi( " . $nilai_tinggi . ")</p>";
 
         //Defuzzifikasi
-        echo '<h4><b>Defuzzifikasi</b></h4>';
+        echo '<br><h4><b>Defuzzifikasi</b></h4>';
         echo '<p>Menggunakan metode Centroid Method</p>';
         echo '(1 x ' . $nilai_rendah . ') + (2 x ' . $nilai_sedang . ') + (3 x ' . $nilai_tinggi . ') / (' . $nilai_rendah . ' + ' . $nilai_sedang . ' + ' . $nilai_tinggi . ')';
 
         $nilaiy = ((1 * $nilai_rendah) + (2 * $nilai_sedang) + (3 * $nilai_tinggi)) / ($nilai_rendah + $nilai_sedang + $nilai_tinggi);
-        echo "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4>";
+        // echo "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4>";
+        $tingkat = "";
         if ($nilaiy <= 1 + (2 / 3)) {
+            $tingkat = 'Rendah';
             echo "Rendah";
         } else if ($nilaiy <= 1 + (4 / 3)) {
+            $tingkat = 'Sedang';
             echo "Sedang";
         } else {
+            $tingkat = 'Tinggi';
             echo "Tinggi";
         }
+        return "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4> <h3>$tingkat</h3>";
     }
 
     //fuzzifikasi
