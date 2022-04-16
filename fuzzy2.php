@@ -137,22 +137,23 @@
             <div class="col-md-8">
                 <form id="regForm" action="fuzzy.php" method="POST">
                     <h1 id="register">Sistem Pakar</h1>
-                    <div class="all-steps" id="all-steps"> <span class="step">
-                            <i class="fa fa-user"></i></span> <span class="step">
-                            <i class="fa fa-map-marker"></i></span> <span class="step">
-                            <i class="fa fa-home"></i></span> <span class="step">
-                            <i class="fas fa-hospital"></i></span> <span class="step">
-                            <i class="fas fa-wine-glass"></i></span> <span class="step">
-                            <i class="fas fa-utensils"></i></span> <span class="step">
-                            <i class="fas fa-dollar-sign"></i></span> <span class="step">
-                            <i class="far fa-hospital"></i></span> <span class="step">
-                            <i class="fas fa-medkit"></i></span> <span class="step">
-                            <i class="fas fa-bath"></i></span> <span class="step">
-                            <i class="fas fa-beer"></i></span> <span class="step">
-                            <i class="fas fa-plane"></i></span> <span class="step">
-                            <i class="fas fa-search-plus"></i></span> <span class="step">
-                            <i class="fas fa-wrench"></i></span> <span class="step">
-                            <i class="far fa-life-ring"></i> </span>
+                    <div class="all-steps" id="all-steps">
+                        <span class="step"><i class="fa fa-user"></i></span>
+                        <span class="step"><i class="fa fa-map-marker"></i></span>
+                        <span class="step"><i class="fa fa-home"></i></span>
+                        <span class="step"><i class="fas fa-hospital"></i></span>
+                        <span class="step"><i class="fas fa-wine-glass"></i></span>
+                        <span class="step"><i class="fas fa-utensils"></i></span>
+                        <span class="step"><i class="fas fa-dollar-sign"></i></span>
+                        <span class="step"><i class="far fa-hospital"></i></span>
+                        <span class="step"><i class="fas fa-medkit"></i></span>
+                        <span class="step"><i class="fas fa-bath"></i></span>
+                        <span class="step"><i class="fas fa-beer"></i></span>
+                        <span class="step"><i class="fas fa-plane"></i></span>
+                        <span class="step"><i class="fas fa-search-plus"></i></span>
+                        <span class="step"><i class="fas fa-wrench"></i></span>
+                        <span class="step"><i class="far fa-life-ring"></i> </span>
+                        <span class="step"><i class="fa fa-disease"></i> </span>
                     </div>
                     <div class="tab">
                         <h6>Masukkan nama</h6>
@@ -473,6 +474,54 @@
                             <input class="form-check-input" type="radio" name="bercakPutih" id="" value="3">
                             <label class="form-check-label" for="inlineRadio2">
                                 > 3 Bercak Putih</label>
+                        </div>
+                        <!-- <p>
+                            <select name="bercakPutih" id="">
+                                <option value="1">Tidak ada</option>
+                                <option value="2">1-3 bercak putih</option>
+                                <option value="3">
+                                    > 3 bercak putih
+                                </option>
+                            </select>
+                        </p> -->
+                    </div>
+                    <div class="tab">
+                        <h6>Apakah ada muncul gejala?</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="bercak_coklat" id="check1">
+                            <label class="form-check-label" for="check1">
+                                Ada bercak coklat muda di gigi
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_gelap" id="check2">
+                            <label class="form-check-label" for="check2">
+                                Bagian gigi berubah warna menjadi gelap (hitam)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_keropos" id="check3">
+                            <label class="form-check-label" for="check3">
+                                Gigi keropos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="bau_mulut" id="check4">
+                            <label class="form-check-label" for="check4">
+                                Bau mulut
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="liur_sedikit" id="check5">
+                            <label class="form-check-label" for="check5">
+                                Jumlah aliran air liur sedikit
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkbox[]" value="mulut_asam" id="check6">
+                            <label class="form-check-label" for="check6">
+                                Mulut terasa asam
+                            </label>
                         </div>
                         <!-- <p>
                             <select name="bercakPutih" id="">

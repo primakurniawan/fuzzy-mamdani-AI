@@ -41,6 +41,12 @@ while ($user_data = mysqli_fetch_array($conn)) {
     $topikalFLouride = $user_data['topikal_fLouride'];
     $memeriksaGigi = $user_data['memeriksa_gigi'];
     $karangGigi = $user_data['karang_gigi'];
+    $bercakCoklat = $user_data['bercak_coklat'];
+    $gigiGelap = $user_data['gigi_gelap'];
+    $gigiKeropos = $user_data['gigi_keropos'];
+    $bauMulut = $user_data['bau_mulut'];
+    $liurSedikit = $user_data['liur_sedikit'];
+    $mulutAsam = $user_data['mulut_asam'];
 }
 ?>
 
@@ -70,10 +76,10 @@ while ($user_data = mysqli_fetch_array($conn)) {
         }
 
         body {
-            /* background-image: url('./_assets/img/coverdr.svg'); */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
             background-size: cover;
             background-size: 100% 100%;
-            background-color: #E6E6FA;
+            background-attachment: fixed;
         }
 
         .lead {
@@ -87,6 +93,10 @@ while ($user_data = mysqli_fetch_array($conn)) {
         p {
             text-align: left;
         }
+
+        .form-check {
+            text-align: left;
+        }
     </style>
 
 
@@ -96,7 +106,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
 
 <body class="d-flex text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
                 <h3 class="float-md-start mb-0">Sistem Pakar</h3>
@@ -119,190 +129,227 @@ while ($user_data = mysqli_fetch_array($conn)) {
         </h4>
 
         <!-- <main class="px-3"> -->
-        <form name="update_user" method="post" action="edit.php">
-            <p class="display-6">Nama Anak</p>
-            <p class="lead"><?php echo $nama; ?> </p>
-            <p class="display-6">Umur Anak</p>
-            <p class="lead"><?php echo $umur; ?> Tahun</p>
-            <tr>
-                <p class=" display-6">Orangtua Yang Memiliki Karies?</p>
-                <p class="lead"><?php
+        <p class="display-6">Nama Anak</p>
+        <p class="lead"><?php echo $nama; ?> </p>
+        <p class="display-6">Umur Anak</p>
+        <p class="lead"><?php echo $umur; ?> Tahun</p>
 
-                                if ($karies = 1) {
-                                    echo "Kedua orang tua tidak memiliki gigi berlubang";
-                                } elseif ($karies = 2) {
-                                    echo "Ayah/Ibu salah satu orang tua memiliki gigi berlubang";
-                                } elseif ($karies = 3) {
-                                    echo "Kedua orang tua memiliki gigi berlubang";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang membutuhkan perawatan khusus ?</p>
-                <p class="lead"><?php
+        <p class=" display-6">Orangtua Yang Memiliki Karies?</p>
+        <p class="lead"><?php
 
-                                if ($perawatanKhusus = 1) {
-                                    echo "Tidak ada perawatan khusus";
-                                } elseif ($perawatanKhusus = 2) {
-                                    echo "Ada 1 perawatan khusu";
-                                } elseif ($perawatanKhusus = 3) {
-                                    echo "Lebih dari 1 perawatan khusus";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang meminum susu botol sebelum tidur
-                    dengan susu murni atau ada penambahan gula ?</p>
-                <p class="lead"><?php
+                        if ($karies = 1) {
+                            echo "Kedua orang tua tidak memiliki gigi berlubang";
+                        } elseif ($karies = 2) {
+                            echo "Ayah/Ibu salah satu orang tua memiliki gigi berlubang";
+                        } elseif ($karies = 3) {
+                            echo "Kedua orang tua memiliki gigi berlubang";
+                        }
+                        ?> </p>
 
-                                if ($susuGula = 1) {
-                                    echo "Susu murni (tidak ada penambahan gula)";
-                                } elseif ($susuGula = 2) {
-                                    echo "Penambahan gula 1 sendok";
-                                } elseif ($susuGula = 3) {
-                                    echo "Penambahan gula > 2 sendok";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang memiliki konsumsi makanan ringan
-                    atau minuman manis lebih dari 3 kali/hari ?</p>
-                <p class="lead"><?php
 
-                                if ($manis = 1) {
-                                    echo "1 kali/hari";
-                                } elseif ($manis = 2) {
-                                    echo "2 – 3 kali/hari";
-                                } elseif ($manis = 3) {
-                                    echo "> 3 kali/hari";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Orangtua yang memilki status ekonomi rendah
-                    ?</p>
-                <p class="lead"><?php
-                                if ($ekonomi = 1) {
-                                    echo " > Rp.5.000.000";
-                                } elseif ($ekonomi = 2) {
-                                    echo "Rp.2.000.000-Rp.5.000.000";
-                                } elseif ($ekonomi = 3) {
-                                    echo "< Rp.2.000.000 ";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang menerima topikal aplikasi fluor dari
-                    dokter gigi
-                    ?</p>
-                <p class="lead"><?php
+        <p class="display-6">Anak yang membutuhkan perawatan khusus ?</p>
+        <p class="lead"><?php
 
-                                if ($topikalFLouride = 1) {
-                                    echo "Tidak pernah";
-                                } elseif ($topikalFLouride = 2) {
-                                    echo "Setahun sekali";
-                                } elseif ($topikalFLouride = 3) {
-                                    echo "Enam bulan sekali";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang menggosok gigi setiap hari dengan
-                    pasta gigi fluoride?</p>
-                <p class="lead"><?php
-                                if ($sikatGigi = 1) {
-                                    echo "Tidak pernah";
-                                } elseif ($sikatGigi = 2) {
-                                    echo "1 kali/ hari";
-                                } elseif ($sikatGigi = 3) {
-                                    echo "2 kali/ hari";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang menerima air minum yang
-                    mengandung fluor atau suplemen fluor secara
-                    optimal
-                    ?</p>
-                <p class="lead"><?php
-                                if ($minumFlour = 3) {
-                                    echo " Tidak ada sama sekali";
-                                } elseif ($minumFlour = 2) {
-                                    echo "Kadang-kadang";
-                                } elseif ($minumFlour = 1) {
-                                    echo "Rutin";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang baru berimigrasi
-                    ?</p>
-                <p class="lead"><?php
-                                if ($imigrasi = 1) {
-                                    echo " Tidak pernah berimigrasi";
-                                } elseif ($imigrasi = 2) {
-                                    echo "1 kali berimigrasi";
-                                } elseif ($imigrasi = 3) {
-                                    echo "Lebih dari 1 kali berimigrasi ";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang rutin memeriksa kesehatan gigi secara
-                    teratur </p>
-                <p class="lead"><?php
-                                if ($memeriksaGigi = 1) {
-                                    echo " Tidak pernah";
-                                } elseif ($memeriksaGigi = 2) {
-                                    echo "Setahun sekali";
-                                } elseif ($memeriksaGigi = 3) {
-                                    echo "Enam bulan sekalii ";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang memiliki karang gigi
-                    ?</p>
-                <p class="lead"><?php
-                                if ($karangGigi = 1) {
-                                    echo " Tidak Ada";
-                                } elseif ($karangGigi = 2) {
-                                    echo "1 – 3 Gigi";
-                                } elseif ($karangGigi = 3) {
-                                    echo "> 3 Gigi ";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang memiliki lubang/ tambalan
-                    ?</p>
-                <p class="lead"><?php
-                                if ($lubangTambal = 1) {
-                                    echo " Tidak Ada";
-                                } elseif ($lubangTambal = 2) {
-                                    echo "1 – 3 Lubang/ Tambalan";
-                                } elseif ($lubangTambal = 3) {
-                                    echo "> 3 Lubang/ Tambalan ";
-                                }
-                                ?> </p>
-            </tr>
-            <tr>
-                <p class="display-6">Anak yang memiliki bercak putih pada gigi ?</p>
-                <p class="lead"><?php
-                                if ($bercakPutih = 1) {
-                                    echo " Tidak Ada";
-                                } elseif ($bercakPutih = 2) {
-                                    echo "1 – 3 Bercak Putih";
-                                } elseif ($bercakPutih = 3) {
-                                    echo "> 3 Bercak Putih ";
-                                }
-                                ?> </p>
-            </tr>
+                        if ($perawatanKhusus = 1) {
+                            echo "Tidak ada perawatan khusus";
+                        } elseif ($perawatanKhusus = 2) {
+                            echo "Ada 1 perawatan khusu";
+                        } elseif ($perawatanKhusus = 3) {
+                            echo "Lebih dari 1 perawatan khusus";
+                        }
+                        ?> </p>
 
-            <tr>
-                <td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?> disabled></td>
-            </tr>
-        </form>
+
+        <p class="display-6">Anak yang meminum susu botol sebelum tidur
+            dengan susu murni atau ada penambahan gula ?</p>
+        <p class="lead"><?php
+
+                        if ($susuGula = 1) {
+                            echo "Susu murni (tidak ada penambahan gula)";
+                        } elseif ($susuGula = 2) {
+                            echo "Penambahan gula 1 sendok";
+                        } elseif ($susuGula = 3) {
+                            echo "Penambahan gula > 2 sendok";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang memiliki konsumsi makanan ringan
+            atau minuman manis lebih dari 3 kali/hari ?</p>
+        <p class="lead"><?php
+
+                        if ($manis = 1) {
+                            echo "1 kali/hari";
+                        } elseif ($manis = 2) {
+                            echo "2 – 3 kali/hari";
+                        } elseif ($manis = 3) {
+                            echo "> 3 kali/hari";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Orangtua yang memilki status ekonomi rendah
+            ?</p>
+        <p class="lead"><?php
+                        if ($ekonomi = 1) {
+                            echo " > Rp.5.000.000";
+                        } elseif ($ekonomi = 2) {
+                            echo "Rp.2.000.000-Rp.5.000.000";
+                        } elseif ($ekonomi = 3) {
+                            echo "< Rp.2.000.000 ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang menerima topikal aplikasi fluor dari
+            dokter gigi
+            ?</p>
+        <p class="lead"><?php
+
+                        if ($topikalFLouride = 1) {
+                            echo "Tidak pernah";
+                        } elseif ($topikalFLouride = 2) {
+                            echo "Setahun sekali";
+                        } elseif ($topikalFLouride = 3) {
+                            echo "Enam bulan sekali";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang menggosok gigi setiap hari dengan
+            pasta gigi fluoride?</p>
+        <p class="lead"><?php
+                        if ($sikatGigi = 1) {
+                            echo "Tidak pernah";
+                        } elseif ($sikatGigi = 2) {
+                            echo "1 kali/ hari";
+                        } elseif ($sikatGigi = 3) {
+                            echo "2 kali/ hari";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang menerima air minum yang
+            mengandung fluor atau suplemen fluor secara
+            optimal
+            ?</p>
+        <p class="lead"><?php
+                        if ($minumFlour = 3) {
+                            echo " Tidak ada sama sekali";
+                        } elseif ($minumFlour = 2) {
+                            echo "Kadang-kadang";
+                        } elseif ($minumFlour = 1) {
+                            echo "Rutin";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang baru berimigrasi
+            ?</p>
+        <p class="lead"><?php
+                        if ($imigrasi = 1) {
+                            echo " Tidak pernah berimigrasi";
+                        } elseif ($imigrasi = 2) {
+                            echo "1 kali berimigrasi";
+                        } elseif ($imigrasi = 3) {
+                            echo "Lebih dari 1 kali berimigrasi ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang rutin memeriksa kesehatan gigi secara
+            teratur </p>
+        <p class="lead"><?php
+                        if ($memeriksaGigi = 1) {
+                            echo " Tidak pernah";
+                        } elseif ($memeriksaGigi = 2) {
+                            echo "Setahun sekali";
+                        } elseif ($memeriksaGigi = 3) {
+                            echo "Enam bulan sekalii ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang memiliki karang gigi
+            ?</p>
+        <p class="lead"><?php
+                        if ($karangGigi = 1) {
+                            echo " Tidak Ada";
+                        } elseif ($karangGigi = 2) {
+                            echo "1 – 3 Gigi";
+                        } elseif ($karangGigi = 3) {
+                            echo "> 3 Gigi ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang memiliki lubang/ tambalan
+            ?</p>
+        <p class="lead"><?php
+                        if ($lubangTambal = 1) {
+                            echo " Tidak Ada";
+                        } elseif ($lubangTambal = 2) {
+                            echo "1 – 3 Lubang/ Tambalan";
+                        } elseif ($lubangTambal = 3) {
+                            echo "> 3 Lubang/ Tambalan ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Anak yang memiliki bercak putih pada gigi ?</p>
+        <p class="lead"><?php
+                        if ($bercakPutih = 1) {
+                            echo " Tidak Ada";
+                        } elseif ($bercakPutih = 2) {
+                            echo "1 – 3 Bercak Putih";
+                        } elseif ($bercakPutih = 3) {
+                            echo "> 3 Bercak Putih ";
+                        }
+                        ?> </p>
+
+
+        <p class="display-6">Apakah ada muncul gejala?</p>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bercak_coklat" id="check1" <?php if ($bercakCoklat == 1) echo "checked" ?>>
+            <label class="form-check-label lead text-left" for="check1">
+                Ada bercak coklat muda di gigi
+            </label>
+        </div>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_gelap" id="check2" <?php if ($gigiGelap == 1) echo "checked" ?>>
+            <label class="form-check-label lead text-left" for="check2">
+                Bagian gigi berubah warna menjadi gelap (hitam)
+            </label>
+        </div>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_keropos" id="check3" <?php if ($gigiKeropos == 1) echo "checked" ?>>
+            <label class="form-check-label lead text-left" for="check3">
+                Gigi keropos
+            </label>
+        </div>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bau_mulut" id="check4" <?php if ($bauMulut == 1) echo "checked" ?>>
+            <label class="form-check-label lead text-left" for="check4">
+                Bau mulut
+            </label>
+        </div>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="liur_sedikit" id="check5" <?php if ($liurSedikit == 1) echo "checked" ?>>
+            <label class="form-check-label lead text-left" for="check5">
+                Jumlah aliran air liur sedikit
+            </label>
+        </div>
+        <div class="form-check">
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="mulut_asam" id="check6" <?php if ($mulutAsam == 1) echo "checked" ?>>
+            <label class="form-check-label lead " for="check6">
+                Mulut terasa asam
+            </label>
+        </div>
+
+
+
+        <td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?> disabled></td>
+
         <!-- </main> -->
 
         <footer class="mt-auto text-white-50">
@@ -317,11 +364,11 @@ while ($user_data = mysqli_fetch_array($conn)) {
     // $sql = "SELECT * FROM history";
     // $result = $conn->query($sql);
     // while ($history_data = mysqli_fetch_array($result)) {
-    //     echo "<tr>";
+    //     echo "";
     //     echo "<td>" . $history_data['nama'] . "</td>";
     //     echo "<td>" . $history_data['umur'] . "</td>";
     //     echo "<td>" . $history_data['karies'] . "</td>";
-    //     // echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td></tr>";        
+    //     // echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td>";        
     // }
 
 

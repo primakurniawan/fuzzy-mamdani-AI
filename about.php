@@ -24,10 +24,10 @@
         }
 
         body {
-            background-image: url('./_assets/img/coverdr.svg');
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
             background-size: cover;
             background-size: 100% 100%;
-            /* background-color: #E6E6FA; */
+            background-attachment: fixed;
         }
 
         .lead {
@@ -46,7 +46,7 @@
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
                 <h3 class="float-md-start mb-0">Sistem Pakar</h3>

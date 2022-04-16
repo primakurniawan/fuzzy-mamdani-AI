@@ -16,16 +16,16 @@
         nilaiGrafik($nilaiRendah);
         echo "<p><b>Nilai Fuzzy Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal: </b></p>";
         nilaiGrafik($nilaiSedang);
-        echo "<p><b>Nilai Fuzzy Manis OR Susu Gula OR Sikat Gigi OR Topikal Flouride OR Periksa Gigi OR Karang Gigi: </b></p>";
+        echo "<p><b>Nilai Fuzzy Manis OR Susu Gula OR Sikat Gigi OR Topikal Flouride OR Periksa Gigi OR Karang Gigi OR Mucul Gejala: </b></p>";
         nilaiGrafik($nilaiTinggi);
     }
 
-    function inferensi($karies, $ekonomi, $manis, $imigrasi, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal, $sikatGigi, $susuGula, $topikalFlouride, $periksaGigi, $karangGigi)
+    function inferensi($karies, $ekonomi, $manis, $imigrasi, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal, $sikatGigi, $susuGula, $topikalFlouride, $periksaGigi, $karangGigi, $gejala)
     {
         //fuzzyfikasi
         $nilaiRendah = calcAvg($ekonomi, $imigrasi);
         $nilaiSedang = calcAvg($karies, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal);
-        $nilaiTinggi = calcAvg($manis, $susuGula, $sikatGigi, $topikalFlouride, $periksaGigi, $karangGigi);
+        $nilaiTinggi = calcAvg($manis, $susuGula, $sikatGigi, $topikalFlouride, $periksaGigi, $karangGigi, $gejala);
 
         hasilfuzzifikasi($nilaiRendah, $nilaiSedang, $nilaiTinggi);
 
@@ -40,24 +40,24 @@
                 for ($k = 1; $k <= 3; $k++) {
 
                     // implikasi
-                    $minimal[$x] = min($nilaiRendah[$j - 1], $nilaiSedang[$i - 1], $nilaiTinggi[$k - 1]);
+                    $minimal[$x] = min($nilaiRendah[$i - 1], $nilaiSedang[$j - 1], $nilaiTinggi[$k - 1]);
                     // Komposisi aturan
-                    if ($j <= 2 && $k < 2) {
-                        if ($i <= 2) {
+                    if ($i <= 2 && $k < 2) {
+                        if ($j <= 2) {
                             $kondisi[$x] = "Rendah";
                         } else {
                             $kondisi[$x] = "Sedang";
                         }
-                    } else if ($j > 2 && $k >= 2) {
-                        if ($i >= 2) {
+                    } else if ($i > 2 && $k >= 2) {
+                        if ($j >= 2) {
                             $kondisi[$x] = "Tinggi";
                         } else {
                             $kondisi[$x] = "Sedang";
                         }
                     } else {
-                        if ($i > 2) {
+                        if ($j > 2) {
                             $kondisi[$x] = "Tinggi";
-                        } else if ($i < 2) {
+                        } else if ($j < 2) {
                             $kondisi[$x] = "Rendah";
                         } else {
                             $kondisi[$x] = "Sedang";
@@ -65,7 +65,7 @@
                     }
 
                     if ($minimal[$x] > 0) {
-                        echo "<p>" . $no . ". IF  (Ekonomi OR Imigrasi = " . kondisi($j) . "(" . $nilaiRendah[$j - 1] . ")) AND (Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal = " . kondisi($i) . "(" . $nilaiSedang[$i - 1] . ")) AND (Manis OR Susu Gula OR Sikat Gigi OR Topikal Floure OR Periksa Gigi OR Karang Gigi= " . kondisi($k) . "(" . $nilaiTinggi[$k - 1] . ")) THAN Resiko = " . $kondisi[$x] . "(" . $minimal[$x] . ")</p>";
+                        echo "<p>" . $no . ". IF  (Ekonomi OR Imigrasi = " . kondisi($j) . "(" . $nilaiRendah[$j - 1] . ")) AND (Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal = " . kondisi($i) . "(" . $nilaiSedang[$i - 1] . ")) AND (Manis OR Susu Gula OR Sikat Gigi OR Topikal Floure OR Periksa Gigi OR Karang Gigi OR Muncul Gejala = " . kondisi($k) . "(" . $nilaiTinggi[$k - 1] . ")) THAN Resiko = " . $kondisi[$x] . "(" . $minimal[$x] . ")</p>";
                     }
 
                     $x++;
@@ -97,7 +97,6 @@
         echo '(1 x ' . $nilai_rendah . ') + (2 x ' . $nilai_sedang . ') + (3 x ' . $nilai_tinggi . ') / (' . $nilai_rendah . ' + ' . $nilai_sedang . ' + ' . $nilai_tinggi . ')';
 
         $nilaiy = ((1 * $nilai_rendah) + (2 * $nilai_sedang) + (3 * $nilai_tinggi)) / ($nilai_rendah + $nilai_sedang + $nilai_tinggi);
-        // echo "<br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4>";
 
         echo "<br><br><h4><b>Tingkat Resiko= </b>" . $nilaiy . "</h4><br>";
         return $nilaiy;

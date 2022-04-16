@@ -25,11 +25,10 @@
         }
 
         body {
-            background-color: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-            /* background-image: url('./_assets/img/coverdr.svg'); */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
             background-size: cover;
             background-size: 100% 100%;
-            /* background-color: #E6E6FA; */
+            background-attachment: fixed;
         }
 
         .lead {
@@ -59,7 +58,7 @@
     include "_fuzzy.php";
 
     ?>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
                 <h3 class="float-md-start mb-0">Sistem Pakar</h3>
@@ -78,7 +77,15 @@
 
             <div id="detail1">
                 <?php
-                $hasil = inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"]);
+                $count = 0;
+                if (isset($_POST['checkbox'])) {
+                    if (is_array($_POST['checkbox'])) {
+                        $count = count($_POST['checkbox']);
+                    }
+                }
+                $gejala = ceil($count / 2);
+                if ($gejala == 0) $gejala = 1;
+                $hasil = inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"], $gejala);
                 $tingkat = "";
                 if ($hasil <= 1 + (2 / 3)) {
                     $tingkat = 'Rendah';
@@ -119,9 +126,17 @@
     <script>
         var detail1 = document.getElementById('detail1')
         var detailopen = document.getElementById('detailopen')
+        var open = false
         detailopen.addEventListener('click', e => {
             e.preventDefault()
-            detail1.style.display = 'block'
+            open = !open
+            if (open) {
+                detail1.style.display = 'block'
+                detailopen.innerText = 'Lebih Sedikit'
+            } else {
+                detail1.style.display = 'none'
+                detailopen.innerText = 'Lebih Lanjut'
+            }
         })
     </script>
 </body>
@@ -155,10 +170,20 @@ $query = "SELECT count(*) as allcount FROM history
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 $allcount = $row['allcount'];
+$str = "";
+$strNum = "";
+if (isset($_POST['checkbox'])) {
+    if (is_array($_POST['checkbox'])) {
+        foreach ($_POST['checkbox'] as $value) {
+            $str .=  ", " . $value;
+            $strNum .= "," . 1;
+        }
+    }
+}
 
 // insert new record
 if ($allcount == 0) {
-    $sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil) VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil)";
+    $sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil" . $str . ") VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil" . $strNum . ")";
     $conn->query($sql);
 }
 // Insert user data into table
