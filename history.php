@@ -95,6 +95,7 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
                 <th>Umur</th>
                 <th>Tingkat Resiko Gigi Berlubang</th>
                 <th>Aksi</th>
+                <th>Aksi</th>
             </tr>
             <?php
             while ($history_data = mysqli_fetch_array($conn)) {
@@ -104,6 +105,7 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
                 echo "<td>" . $history_data['umur'] . "</td>";
                 echo "<td>" . $history_data['hasil'] . "</td>";
                 echo "<td><a href='detail.php?id=$history_data[id]'>Detail</a>";
+                echo "<td><a href='delete.php?id=$history_data[id]'>Delete</a></td>";
                 echo "<tr>";
             }
             ?>

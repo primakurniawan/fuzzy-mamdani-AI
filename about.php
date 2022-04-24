@@ -54,7 +54,7 @@
                     <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
                     <a class="nav-link active" href="about.php">Tentang</a>
-                    <a class="nav-link" href="history.php">Histori Pengguna</a>
+                    <a class="nav-link" href="login.php">Histori Pengguna</a>
                 </nav>
             </div>
         </header>
