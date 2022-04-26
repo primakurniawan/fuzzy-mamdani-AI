@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2022 at 10:25 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Generation Time: Apr 26, 2022 at 04:54 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,9 +60,6 @@ CREATE TABLE `history` (
 
 INSERT INTO `history` (`id`, `nama`, `umur`, `karies`, `ekonomi`, `manis`, `imigrasi`, `perawatan_khusus`, `minum_flour`, `bercak_putih`, `lubang_tambal`, `sikat_gigi`, `susu_gula`, `topikal_fLouride`, `memeriksa_gigi`, `karang_gigi`, `bercak_coklat`, `gigi_gelap`, `gigi_keropos`, `bau_mulut`, `liur_sedikit`, `mulut_asam`, `hasil`, `created`) VALUES
 (1, 'Asa', 12, 1, 1, 1, 1, 2, 2, 1, 1, 3, 1, 3, 2, 1, 0, 0, 0, 0, 0, 0, 1.4, '2022-04-15 20:11:57'),
-(2, 'Misa', 5, 1, 3, 1, 1, 1, 3, 1, 2, 3, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 20:14:02'),
-(3, 'Ika', 6, 1, 3, 1, 3, 1, 1, 1, 3, 3, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 20:14:37'),
-(4, 'Iko', 6, 1, 3, 1, 3, 1, 1, 1, 3, 3, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 13:14:38'),
 (5, 'Ike', 6, 1, 3, 1, 3, 1, 1, 1, 3, 3, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 13:14:40'),
 (6, 'Ike', 6, 1, 3, 1, 3, 1, 1, 1, 3, 3, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 13:14:40'),
 (7, 'Ike', 6, 1, 3, 1, 3, 1, 1, 1, 3, 3, 3, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1.75, '2022-04-15 13:14:40'),
@@ -110,10 +107,26 @@ INSERT INTO `history` (`id`, `nama`, `umur`, `karies`, `ekonomi`, `manis`, `imig
 (69, 'l/k', 4, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 0, 0, 0, 0, 0, 0, 1.72414, '2022-04-16 07:16:56'),
 (70, 'fg', 3, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 0, 0, 1, 0, 0, 0, 1.61765, '2022-04-16 07:24:14'),
 (71, 'yuba', 23, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 0, 0, 0, 0, 0, 0, 1.72414, '2022-04-16 07:25:36'),
-(72, 'pantek', 4, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 0, 1, 1, 0, 0, 0, 1.61765, '2022-04-16 07:29:47'),
-(73, 'kuntul', 4, 3, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 1, 1, 1, 1, 1, 0, 1.875, '2022-04-16 07:34:32'),
-(74, 'anjeng', 3, 1, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 0, 0, 0, 0, 0, 0, 1.61765, '2022-04-16 07:43:09'),
-(75, 'bk', 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 0, 0, 0, 2, '2022-04-16 07:46:09');
+(73, 'kuntul', 4, 3, 1, 1, 1, 1, 3, 1, 1, 3, 1, 3, 3, 1, 1, 1, 1, 1, 1, 0, 1.875, '2022-04-16 07:34:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'superadmin', 'nimdarepus');
 
 --
 -- Indexes for dumped tables
@@ -126,6 +139,12 @@ ALTER TABLE `history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -134,6 +153,12 @@ ALTER TABLE `history`
 --
 ALTER TABLE `history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
