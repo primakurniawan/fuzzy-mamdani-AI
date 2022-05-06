@@ -127,7 +127,7 @@
         }
         return $arr;
     }
-
+    //Codingan Menampilkann resiko
     function kondisi($n)
     {
         if ($n == 1) return "Rendah";

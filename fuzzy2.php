@@ -138,6 +138,7 @@
                 <form id="regForm" action="fuzzy.php" method="POST">
                     <h1 id="register">Sistem Pakar</h1>
                     <div class="all-steps" id="all-steps">
+                        <!-- Codingan Logo Di Pertanyaan -->
                         <span class="step"><i class="fa fa-user"></i></span>
                         <span class="step"><i class="fa fa-map-marker"></i></span>
                         <span class="step"><i class="fa fa-home"></i></span>

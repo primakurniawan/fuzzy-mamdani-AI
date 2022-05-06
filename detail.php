@@ -128,7 +128,6 @@ while ($user_data = mysqli_fetch_array($conn)) {
             <br>
         </h4>
 
-        <!-- <main class="px-3"> -->
         <p class="display-6">Nama Anak</p>
         <p class="lead"><?php echo $nama; ?> </p>
         <p class="display-6">Umur Anak</p>
