@@ -205,11 +205,11 @@ while ($user_data = mysqli_fetch_array($conn)) {
             ?</p>
         <p class="lead"><?php
 
-                        if ($topikalFLouride = 1) {
+                        if ($topikalFLouride = 3) {
                             echo "Tidak pernah";
                         } elseif ($topikalFLouride = 2) {
                             echo "Setahun sekali";
-                        } elseif ($topikalFLouride = 3) {
+                        } elseif ($topikalFLouride = 1) {
                             echo "Enam bulan sekali";
                         }
                         ?> </p>
@@ -218,11 +218,11 @@ while ($user_data = mysqli_fetch_array($conn)) {
         <p class="display-6">Anak yang menggosok gigi setiap hari dengan
             pasta gigi fluoride?</p>
         <p class="lead"><?php
-                        if ($sikatGigi = 1) {
+                        if ($sikatGigi = 3) {
                             echo "Tidak pernah";
                         } elseif ($sikatGigi = 2) {
                             echo "1 kali/ hari";
-                        } elseif ($sikatGigi = 3) {
+                        } elseif ($sikatGigi = 1) {
                             echo "2 kali/ hari";
                         }
                         ?> </p>
@@ -259,11 +259,11 @@ while ($user_data = mysqli_fetch_array($conn)) {
         <p class="display-6">Anak yang rutin memeriksa kesehatan gigi secara
             teratur </p>
         <p class="lead"><?php
-                        if ($memeriksaGigi = 1) {
+                        if ($memeriksaGigi = 3) {
                             echo " Tidak pernah";
                         } elseif ($memeriksaGigi = 2) {
                             echo "Setahun sekali";
-                        } elseif ($memeriksaGigi = 3) {
+                        } elseif ($memeriksaGigi = 1) {
                             echo "Enam bulan sekalii ";
                         }
                         ?> </p>
