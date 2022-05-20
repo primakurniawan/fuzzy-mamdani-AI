@@ -68,6 +68,7 @@
                         echo "<p>" . $no . ". IF  (Ekonomi OR Imigrasi = " . kondisi($j) . "(" . $nilaiRendah[$j - 1] . ")) AND (Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal = " . kondisi($i) . "(" . $nilaiSedang[$i - 1] . ")) AND (Manis OR Susu Gula OR Sikat Gigi OR Topikal Floure OR Periksa Gigi OR Karang Gigi OR Muncul Gejala = " . kondisi($k) . "(" . $nilaiTinggi[$k - 1] . ")) THAN Resiko = " . $kondisi[$x] . "(" . $minimal[$x] . ")</p>";
                     }
 
+
                     $x++;
                     $no++;
                 }
