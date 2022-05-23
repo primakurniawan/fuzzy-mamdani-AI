@@ -14,6 +14,8 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
     <title>Sistem Pakar Gigi Balita</title>
     <!-- Bootstrap core CSS -->
     <link href="./_assets/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
+
 
     <style>
         .bd-placeholder-img {
