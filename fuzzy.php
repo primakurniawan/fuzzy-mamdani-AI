@@ -89,12 +89,16 @@
                 if ($gejala == 0) $gejala = 1;
                 $hasil = inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"], $gejala);
                 $tingkat = "";
+                $saran = "";
                 if ($hasil <= 1 + (2 / 3)) {
                     $tingkat = 'Rendah';
+                    $saran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali';
                 } else if ($hasil <= 1 + (4 / 3)) {
                     $tingkat = 'Sedang';
+                    $saran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, melakukan aplikasi flour ke dokter gigi';
                 } else {
                     $tingkat = 'Tinggi';
+                    $aran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, melakukan aplikasi flour ke dokter gigi, merawat gigi yang telah rusak';
                 }
 
 
@@ -110,8 +114,8 @@
                     ?>
                     <br>
                     <?php
-                    echo "<h3>Tingkat Resiko Gigi Berlubang $tingkat</h3>"
-
+                    echo "<h3>Tingkat Resiko Gigi Berlubang $tingkat</h3> \n";
+                    echo "<h4 class='lead'>Saran : $saran </h4>";
                     ?>
                 </p>
                 <button class="btn btn-primary" type="button" id="detailopen">Lebih Lanjut</button>
