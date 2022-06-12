@@ -376,14 +376,7 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 Rutin </label>
                         </div>
-                        <!-- <p>
-                            <select name="minumFlour" id="">
-                                <option value="1">Tidak ada sama sekali</option>
-                                <option value="2">Kadang-kadang</option>
-                                <option value="3">
-                                    Rutin</option>
-                            </select>
-                        </p> -->
+
                     </div>
                     <div class="tab">
                         <h6>Anak yang baru berimigrasi
@@ -427,15 +420,10 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 > 3 Gigi</label>
                         </div>
-                        <!-- <p>
-                            <select name="karangGigi" id="">
-                                <option value="1">Tidak ada</option>
-                                <option value="2">1 – 3 gigi</option>
-                                <option value="3">
-                                    > 3 gigi
-                                </option>
-                            </select>
-                        </p> -->
+
+                        <center>
+                            <img src="_assets/img/karanggigi.jpeg" alt="Karang Gigi image" class="img-fluid center" style="height: 250px" />
+
                     </div>
                     <div class="tab">
                         <h6>Anak yang memiliki lubang/ tambalan
@@ -453,15 +441,8 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 > 3 Lubang/ Tambalan</label>
                         </div>
-                        <!-- <p>
-                            <select name="lubangTambal" id="">
-                                <option value="1">Tidak ada</option>
-                                <option value="2">1 – 3 lubang/ tambalan</option>
-                                <option value="3">
-                                    > 3 lubang/ tambalan
-                                </option>
-                            </select>
-                        </p> -->
+                        <center>
+                            <img src="_assets/img/lubang.jpeg" alt="Karang Gigi image" class="img-fluid center" style="height: 250px" />
                     </div>
                     <div class="tab">
                         <h6>Anak yang memiliki bercak putih pada gigi ?</h6>
@@ -478,15 +459,8 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 > 3 Bercak Putih</label>
                         </div>
-                        <!-- <p>
-                            <select name="bercakPutih" id="">
-                                <option value="1">Tidak ada</option>
-                                <option value="2">1-3 bercak putih</option>
-                                <option value="3">
-                                    > 3 bercak putih
-                                </option>
-                            </select>
-                        </p> -->
+                        <center>
+                            <img src="_assets/img/bercak.jpeg" alt="Karang Gigi image" class="img-fluid center" style="height: 250px" />
                     </div>
                     <div class="tab">
                         <h6>Apakah ada muncul gejala?</h6>
