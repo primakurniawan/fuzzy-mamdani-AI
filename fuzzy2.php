@@ -10,6 +10,7 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
 
     <style>
@@ -141,22 +142,22 @@
                     <h1 id="register">Sistem Pakar</h1>
                     <div class="all-steps" id="all-steps">
                         <!-- Codingan Logo Di Pertanyaan -->
-                        <span class="step"><i class="fa fa-user"></i></span>
-                        <span class="step"><i class="fa fa-map-marker"></i></span>
                         <span class="step"><i class="fa fa-home"></i></span>
-                        <span class="step"><i class="fas fa-hospital"></i></span>
-                        <span class="step"><i class="fas fa-wine-glass"></i></span>
-                        <span class="step"><i class="fas fa-utensils"></i></span>
-                        <span class="step"><i class="fas fa-dollar-sign"></i></span>
-                        <span class="step"><i class="far fa-hospital"></i></span>
-                        <span class="step"><i class="fas fa-medkit"></i></span>
-                        <span class="step"><i class="fas fa-bath"></i></span>
-                        <span class="step"><i class="fas fa-beer"></i></span>
-                        <span class="step"><i class="fas fa-plane"></i></span>
-                        <span class="step"><i class="fas fa-search-plus"></i></span>
-                        <span class="step"><i class="fas fa-wrench"></i></span>
-                        <span class="step"><i class="far fa-life-ring"></i> </span>
-                        <span class="step"><i class="fa fa-disease"></i> </span>
+                        <span class="step"><i class="fa fa-map-marker"></i></span>
+                        <span class="step"><i class="fa"></i>1</span>
+                        <span class="step"><i class="fas"></i>2</span>
+                        <span class="step"><i class="fass"></i>3</span>
+                        <span class="step"><i class="fas"></i>4</span>
+                        <span class="step"><i class="fas "></i>5</span>
+                        <span class="step"><i class="far "></i>6</span>
+                        <span class="step"><i class="fas"></i>7</span>
+                        <span class="step"><i class="fas"></i>8</span>
+                        <span class="step"><i class="fas"></i>9</span>
+                        <span class="step"><i class="fas "></i>10</span>
+                        <span class="step"><i class="fas"></i>11</span>
+                        <span class="step"><i class="fas"></i>12</span>
+                        <span class="step"><i class="far "></i>13</span>
+                        <span class="step"><i class="fa "></i>14</span>
                     </div>
                     <div class="tab">
                         <h6>Masukkan nama</h6>
