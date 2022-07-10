@@ -144,6 +144,7 @@
                         <!-- Codingan Logo Di Pertanyaan -->
                         <span class="step"><i class="fa fa-home"></i></span>
                         <span class="step"><i class="fa fa-map-marker"></i></span>
+                        <span class="step"><i class="fa fa-phone"></i></span>
                         <span class="step"><i class="fa"></i>1</span>
                         <span class="step"><i class="fas"></i>2</span>
                         <span class="step"><i class="fass"></i>3</span>
@@ -158,6 +159,7 @@
                         <span class="step"><i class="fas"></i>12</span>
                         <span class="step"><i class="far "></i>13</span>
                         <span class="step"><i class="fa "></i>14</span>
+                        <span class="step"><i class="fa "></i>15</span>
                     </div>
                     <div class="tab">
                         <h6>Masukkan nama</h6>
@@ -166,6 +168,9 @@
                     <div class="tab">
                         <h6>Masukkan umur</h6>
                         <p><input type="number" placeholder="Umur" oninput="this.className = ''" name="dd"></p>
+                    </div> <div class="tab">
+                        <h6>Masukkan Nomor Hp Orang Tua</h6>
+                        <p><input type="number" placeholder="Umur" oninput="this.className = ''" name="nohp"></p>
                     </div>
                     <div class="tab">
                         <h6>Orangtua yang memiliki karies ?</h6>
@@ -249,13 +254,6 @@
                             <input class="form-check-input" type="radio" name="manis" id="" value="3">
                             <label class="form-check-label" for="inlineRadio2"> > 3 kali/hari</label>
                         </div>
-                        <!-- <p>
-                            <select name="manis" id="">
-                                <option value="1">1 kali/hari</option>
-                                <option value="2">2 – 3 kali/hari</option>
-                                <option value="3">> 3 kali/hari</option>
-                            </select>
-                        </p> -->
                     </div>
                     <div class="tab">
                         <h6>Orangtua yang memilki status ekonomi rendah
@@ -273,14 +271,6 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 < Rp.2.000.000</label>
                         </div>
-                        <!-- <p>
-                            <select name="ekonomi" id="">
-                                <option value="1">> Rp.5.000.000</option>
-                                <option value="2">Rp.2.000.000-Rp.5.000.000</option>
-                                <option value="3">
-                                    < Rp.2.000.000</option>
-                            </select>
-                        </p> -->
                     </div>
                     <div class="tab">
                         <h6>Anak yang rutin memeriksa kesehatan gigi secara
@@ -325,14 +315,6 @@
                                 2 kali / tahun </label>
                         </div>
 
-                        <!-- <p>
-                            <select name="topikalFLouride" id="">
-                                <option value="3">Tidak pernah</option>
-                                <option value="2">1 kali/ tahun</option>
-                                <option value="1">
-                                    2 kali/ tahun</option>
-                            </select>
-                        </p> -->
                     </div>
                     <div class="tab">
                         <h6>Anak yang menggosok gigi setiap hari dengan
@@ -350,14 +332,7 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 2 kali/ hari </label>
                         </div>
-                        <!-- <p>
-                            <select name="sikatGigi" id="">
-                                <option value="1">Tidak pernah</option>
-                                <option value="2">1 kali/ hari</option>
-                                <option value="3">
-                                    2 kali/ hari</option>
-                            </select>
-                        </p> -->
+
                     </div>
                     <div class="tab">
                         <h6>Anak yang menerima air minum yang
@@ -395,15 +370,7 @@
                             <label class="form-check-label" for="inlineRadio2">
                                 Lebih dari 1 kali berimigrasi </label>
                         </div>
-                        <!-- <p>
-                            <select name="imigrasi" id="">
-                                <option value="1">Tidak pernah berimigrasi</option>
-                                <option value="2">1 kali berimigrasi</option>
-                                <option value="3">
-                                    Lebih dari 1 kali berimigrasi
-                                </option>
-                            </select>
-                        </p> -->
+
                     </div>
                     <div class="tab">
                         <h6>Anak yang memiliki karang gigi
@@ -501,15 +468,11 @@
                                 Mulut terasa asam
                             </label>
                         </div>
-                        <!-- <p>
-                            <select name="bercakPutih" id="">
-                                <option value="1">Tidak ada</option>
-                                <option value="2">1-3 bercak putih</option>
-                                <option value="3">
-                                    > 3 bercak putih
-                                </option>
-                            </select>
-                        </p> -->
+                    </div>
+                    <div class="tab">
+                        <h6>Apakah ada muncul gejala lainnya?</h6>
+                        <p> <input placeholder="" name="lain"></p>
+
                     </div>
 
                     <div style="overflow:auto;" id="nextprevious">

@@ -153,6 +153,7 @@
 // Check If form submitted, insert form data into users table.
 $name = $_POST['fname'];
 $age = $_POST['dd'];
+$hp = $_POST['nohp'];
 $karies = (int)$_POST["karies"];
 $ekonomi = (int)$_POST["ekonomi"];
 $manis = (int)$_POST["manis"];
@@ -166,6 +167,8 @@ $susuGula = (int)$_POST["susuGula"];
 $topikalFLouride = (int)$_POST["topikalFLouride"];
 $memeriksaGigi = (int)$_POST["memeriksaGigi"];
 $karangGigi = (int)$_POST["karangGigi"];
+$Lainnya = $_POST['lain'];
+
 
 // include database connection file
 include_once("config.php");
@@ -189,7 +192,7 @@ if (isset($_POST['checkbox'])) {
 
 // insert new record
 if ($allcount == 0) {
-    $sql = "INSERT INTO history(nama,umur, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, hasil" . $str . ") VALUES('$name',$age, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi, $hasil" . $strNum . ")";
+    $sql = "INSERT INTO history(nama,umur, nohp, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, lainnya, hasil" . $str . ") VALUES('$name',$age, $hp, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi,'$Lainnya',$hasil" . $strNum . ")";
     $conn->query($sql);
 }
 // Insert user data into table

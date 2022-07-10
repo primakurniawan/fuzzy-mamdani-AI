@@ -28,6 +28,8 @@ $conn = mysqli_query($conn, "SELECT * FROM history WHERE id=$id");
 while ($user_data = mysqli_fetch_array($conn)) {
     $nama = $user_data['nama'];
     $umur = $user_data['umur'];
+    $nohp = $user_data['nohp'];
+    $lainnya = $user_data['lainnya'];
     $karies = $user_data['karies'];
     $ekonomi = $user_data['ekonomi'];
     $manis = $user_data['manis'];
@@ -134,6 +136,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
         <p class="lead"><?php echo $nama; ?> </p>
         <p class="display-6">Umur Anak</p>
         <p class="lead"><?php echo $umur; ?> Tahun</p>
+        <p class="display-6">Nomor Hp Orang Tua</p>
+        <p class="lead"><?php echo $nohp; ?> </p>
 
         <p class=" display-6">Orangtua Yang Memiliki Karies?</p>
         <p class="lead"><?php
@@ -346,6 +350,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
                 Mulut terasa asam
             </label>
         </div>
+        <p class="display-6">Gejala Lainnya</p>
+        <p class="lead"><?php echo $lainnya; ?> </p>
 
 
 
