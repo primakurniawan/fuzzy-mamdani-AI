@@ -29,7 +29,6 @@ while ($user_data = mysqli_fetch_array($conn)) {
     $nama = $user_data['nama'];
     $umur = $user_data['umur'];
     $nohp = $user_data['nohp'];
-    $lainnya = $user_data['lainnya'];
     $karies = $user_data['karies'];
     $ekonomi = $user_data['ekonomi'];
     $manis = $user_data['manis'];
@@ -63,44 +62,48 @@ while ($user_data = mysqli_fetch_array($conn)) {
     <link href="./_assets/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
         }
+    }
 
-        body {
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
-            background-size: cover;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-        }
+    body {
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
+        background-size: cover;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        font-family: 'Martel Sans', sans-serif;
+    }
 
-        .lead {
-            color: coral;
-        }
+    .lead {
+        color: #6C63FF;
+    }
 
-        h4 {
-            color: coral;
-        }
+    h4 {
+        color: #6C63FF;
+    }
 
-        p {
-            text-align: left;
-        }
+    p {
+        text-align: left;
+        font-size: 20px;
+    }
 
-        .form-check {
-            text-align: left;
-        }
+    .form-check {
+        text-align: left;
+    }
     </style>
 
 
@@ -113,11 +116,12 @@ while ($user_data = mysqli_fetch_array($conn)) {
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
-                <h3 class="float-md-start mb-0">Sistem Pakar</h3>
+                <h3 class="float-md-start mb-0">Cegah Lubang</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
-                    <a class="nav-link" href="#">Tentang</a>
+                    <a class="nav-link" href="info.php">Informasi</a>
+                    <a class="nav-link" href="about.php">Tentang</a>
                     <a class="nav-link active" aria-current="page" href="history.php">Histori Pengguna</a>
                 </nav>
             </div>
@@ -132,14 +136,14 @@ while ($user_data = mysqli_fetch_array($conn)) {
             <br>
         </h4>
 
-        <p class="display-6">Nama Anak</p>
+        <p>Nama</p>
         <p class="lead"><?php echo $nama; ?> </p>
-        <p class="display-6">Umur Anak</p>
+        <p>Umur</p>
         <p class="lead"><?php echo $umur; ?> Tahun</p>
-        <p class="display-6">Nomor Hp Orang Tua</p>
+        <p>Nomor Handphone</p>
         <p class="lead"><?php echo $nohp; ?> </p>
 
-        <p class=" display-6">Orangtua Yang Memiliki Karies?</p>
+        <p>Orangtua yang memiliki gigi berlubang</p>
         <p class="lead"><?php
 
                         if ($karies = 1) {
@@ -152,7 +156,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang membutuhkan perawatan khusus ?</p>
+        <p>Anak yang membutuhkan perawatan khusus (kelainan bawaan lahir)</p>
         <p class="lead"><?php
 
                         if ($perawatanKhusus = 1) {
@@ -165,8 +169,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang meminum susu botol sebelum tidur
-            dengan susu murni atau ada penambahan gula ?</p>
+        <p>Anak yang meminum susu botol sebelum tidur dengan susu murni atau ada penambahan gula</p>
         <p class="lead"><?php
 
                         if ($susuGula = 1) {
@@ -179,8 +182,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang memiliki konsumsi makanan ringan
-            atau minuman manis lebih dari 3 kali/hari ?</p>
+        <p>Frekuensi anak mengkonsumsi makanan ringan atau minuman manis</p>
         <p class="lead"><?php
 
                         if ($manis = 1) {
@@ -193,8 +195,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Orangtua yang memilki status ekonomi rendah
-            ?</p>
+        <p>Pendapatan bulanan orang tua</p>
         <p class="lead"><?php
                         if ($ekonomi = 1) {
                             echo " > Rp.5.000.000";
@@ -206,9 +207,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang menerima topikal aplikasi fluor dari
-            dokter gigi
-            ?</p>
+        <p>Frekuensi anak yang memeriksa kesehatan gigi secara teratur</p>
         <p class="lead"><?php
 
                         if ($topikalFLouride = 3) {
@@ -221,8 +220,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang menggosok gigi setiap hari dengan
-            pasta gigi fluoride?</p>
+        <p>Frekuensi anak yang menggosok gigi setiap hari dengan pasta gigi fluoride</p>
         <p class="lead"><?php
                         if ($sikatGigi = 3) {
                             echo "Tidak pernah";
@@ -234,10 +232,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang menerima air minum yang
-            mengandung fluor atau suplemen fluor secara
-            optimal
-            ?</p>
+        <p>Frekuensi anak yang mendapat air minum yang mengandung fluor atau suplemen fluor secara
+            optimal</p>
         <p class="lead"><?php
                         if ($minumFlour = 3) {
                             echo " Tidak ada sama sekali";
@@ -249,8 +245,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang baru berimigrasi
-            ?</p>
+        <p>Frekuensi anak yang pernah berpindah tempat tinggal</p>
         <p class="lead"><?php
                         if ($imigrasi = 1) {
                             echo " Tidak pernah berimigrasi";
@@ -262,8 +257,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang rutin memeriksa kesehatan gigi secara
-            teratur </p>
+        <p>Frekuensi anak yang memeriksa kesehatan gigi secara teratur </p>
         <p class="lead"><?php
                         if ($memeriksaGigi = 3) {
                             echo " Tidak pernah";
@@ -275,8 +269,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang memiliki karang gigi
-            ?</p>
+        <p>Anak yang memiliki karang gigi
+        </p>
         <p class="lead"><?php
                         if ($karangGigi = 1) {
                             echo " Tidak Ada";
@@ -288,8 +282,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang memiliki lubang/ tambalan
-            ?</p>
+        <p>Anak yang memiliki lubang/tambalan
+        </p>
         <p class="lead"><?php
                         if ($lubangTambal = 1) {
                             echo " Tidak Ada";
@@ -301,7 +295,7 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Anak yang memiliki bercak putih pada gigi ?</p>
+        <p>Anak yang memiliki bercak putih pada gigi </p>
         <p class="lead"><?php
                         if ($bercakPutih = 1) {
                             echo " Tidak Ada";
@@ -313,45 +307,49 @@ while ($user_data = mysqli_fetch_array($conn)) {
                         ?> </p>
 
 
-        <p class="display-6">Apakah ada muncul gejala?</p>
+        <p>Gejala lain</p>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bercak_coklat" id="check1" <?php if ($bercakCoklat == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bercak_coklat" id="check1"
+                <?php if ($bercakCoklat == 1) echo "checked" ?>>
             <label class="form-check-label lead text-left" for="check1">
                 Ada bercak coklat muda di gigi
             </label>
         </div>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_gelap" id="check2" <?php if ($gigiGelap == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_gelap" id="check2"
+                <?php if ($gigiGelap == 1) echo "checked" ?>>
             <label class="form-check-label lead text-left" for="check2">
                 Bagian gigi berubah warna menjadi gelap (hitam)
             </label>
         </div>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_keropos" id="check3" <?php if ($gigiKeropos == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="gigi_keropos" id="check3"
+                <?php if ($gigiKeropos == 1) echo "checked" ?>>
             <label class="form-check-label lead text-left" for="check3">
                 Gigi keropos
             </label>
         </div>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bau_mulut" id="check4" <?php if ($bauMulut == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="bau_mulut" id="check4"
+                <?php if ($bauMulut == 1) echo "checked" ?>>
             <label class="form-check-label lead text-left" for="check4">
                 Bau mulut
             </label>
         </div>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="liur_sedikit" id="check5" <?php if ($liurSedikit == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="liur_sedikit" id="check5"
+                <?php if ($liurSedikit == 1) echo "checked" ?>>
             <label class="form-check-label lead text-left" for="check5">
                 Jumlah aliran air liur sedikit
             </label>
         </div>
         <div class="form-check">
-            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="mulut_asam" id="check6" <?php if ($mulutAsam == 1) echo "checked" ?>>
+            <input disabled class="form-check-input" type="checkbox" name="checkbox[]" value="mulut_asam" id="check6"
+                <?php if ($mulutAsam == 1) echo "checked" ?>>
             <label class="form-check-label lead " for="check6">
                 Mulut terasa asam
             </label>
         </div>
-        <p class="display-6">Gejala Lainnya</p>
-        <p class="lead"><?php echo $lainnya; ?> </p>
 
 
 
@@ -360,8 +358,8 @@ while ($user_data = mysqli_fetch_array($conn)) {
         <!-- </main> -->
 
         <footer class="mt-auto text-white-50">
-            <p>Aplikasi Menggunakan Metode Fuzzy Mamdina</p>
-        </footer>
+
+            <p>2022© Cegah Lubang</p>
     </div>
 
 

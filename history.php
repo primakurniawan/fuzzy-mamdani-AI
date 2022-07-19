@@ -15,49 +15,49 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
     <!-- Bootstrap core CSS -->
     <link href="./_assets/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
         }
+    }
 
-        body {
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
-            background-size: cover;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-        }
+    body {
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
+        background-size: cover;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        font-family: 'Martel Sans', sans-serif;
+    }
 
-        .lead {
-            color: coral;
-        }
+    .lead {
+        color: #6C63FF;
+    }
 
-        h4 {
-            color: coral;
-        }
 
-        table {
-            counter-reset: rowNumber;
-        }
 
-        table tr td:first-child::before {
-            content: counter(rowNumber);
-            min-width: 1em;
-            margin-right: 0.5em;
-            counter-increment: rowNumber;
+    table {
+        counter-reset: rowNumber;
+    }
 
-        }
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+        counter-increment: rowNumber;
+
+    }
     </style>
 
 
@@ -70,23 +70,23 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
-                <h3 class="float-md-start mb-0">Sistem Pakar</h3>
+                <h3 class="float-md-start mb-0">Cegah Lubang</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link" href="index.php">Beranda</a>
-                    <!-- <a class="nav-link" href="#">Features</a> -->
+                    <a class="nav-link" href="info.php">Informasi</a>
                     <a class="nav-link" href="about.php">Tentang</a>
                     <a class="nav-link active" aria-current="page" href="history.php">Histori Pengguna</a>
                 </nav>
             </div>
         </header>
-        <h4>
+        <h3 style="color:#6C63FF;">
             <br>
             <br>
 
-            Tabel Histori Pengguna Aplikasi Sistem Pakar<br>
+            Tabel Histori Pengguna Cegah Lubang<br>
             <br>
             <br>
-        </h4>
+        </h3>
 
         <!-- <main class="px-3"> -->
         <table class="table table-sm table-dark">
@@ -95,8 +95,9 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
                 <th>#</th>
                 <th>Nama</th>
                 <th>Umur</th>
-                <th>NIlai Resiko Gigi Berlubang</th>
-                <th>Tingkat Resiko Gigi Berlubang</th>
+                <th>Nomor HP</th>
+                <th>NIlai Risiko Gigi Berlubang</th>
+                <th>Tingkat Risiko Gigi Berlubang</th>
                 <th colspan="2">Aksi</th>
             </tr>
             <?php
@@ -105,6 +106,7 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
                 echo "<td> </td>";
                 echo "<td>" . $history_data['nama'] . "</td>";
                 echo "<td>" . $history_data['umur'] . "</td>";
+                echo "<td>" . $history_data['nohp'] . "</td>";
                 echo "<td>" . $history_data['hasil'] . "</td>";
                 $tingkat = "";
                 if ($history_data['hasil'] <= 1 + (2 / 3)) {
@@ -124,7 +126,7 @@ $conn = mysqli_query($conn, "SELECT * FROM history ORDER BY id ASC");
         <!-- </main> -->
 
         <footer class="mt-auto text-white-50">
-            <p>Aplikasi Menggunakan Metode Fuzzy Mamdina</p>
+            <p>2022© Cegah Lubang</p>
         </footer>
     </div>
 

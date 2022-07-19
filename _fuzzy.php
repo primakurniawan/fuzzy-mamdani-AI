@@ -1,5 +1,5 @@
-    <br>
-    <?php
+<br>
+<?php
     function nilaiGrafik($nilai)
     {
         echo  "Rendah (" . $nilai[0] . ") </br>";
@@ -12,20 +12,29 @@
     {
 
         echo "<br><h4><b>Hasil Fuzzifikasi: </b></h4>";
-        echo "<p><b>Nilai Fuzzy Ekonomi OR Imigrasi: </b></p>";
-        nilaiGrafik($nilaiRendah);
-        echo "<p><b>Nilai Fuzzy Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal: </b></p>";
-        nilaiGrafik($nilaiSedang);
-        echo "<p><b>Nilai Fuzzy Manis OR Susu Gula OR Sikat Gigi OR Topikal Flouride OR Periksa Gigi OR Karang Gigi OR Mucul Gejala: </b></p>";
-        nilaiGrafik($nilaiTinggi);
+
+        // echo "<p><b>Nilai Fuzzy Ekonomi OR Imigrasi: </b></p>";
+        // nilaiGrafik($nilaiRendah);
+        // echo "<p><b>Nilai Fuzzy Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal: </b></p>";
+        // nilaiGrafik($nilaiSedang);
+        // echo "<p><b>Nilai Fuzzy Manis OR Susu Gula OR Sikat Gigi OR Topikal Flouride OR Periksa Gigi OR Karang Gigi OR Mucul Gejala: </b></p>";
+        // nilaiGrafik($nilaiTinggi);
+
+
+        echo "<div class=\"border\"><p><b>Nilai Fuzzy Ekonomi OR Imigrasi: </b></p>Rendah(".$nilaiRendah[0].")</br>Sedang(".$nilaiRendah[1].")</br>Tinggi(".$nilaiRendah[2].")</br></div>";
+        echo "<div class=\"border\"><p><b>Nilai Fuzzy Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal: </b></p>Rendah(".$nilaiSedang[0].")</br>Sedang(".$nilaiSedang[1].")</br>Tinggi(".$nilaiSedang[2].")</br></div>";
+        echo "<div class=\"border\"><p><b>Nilai Fuzzy Manis OR Susu Gula OR Sikat Gigi OR Topikal Flouride OR Periksa Gigi OR Karang Gigi OR Mucul Gejala: </b></p>Rendah(".$nilaiTinggi[0].")</br>Sedang(".$nilaiTinggi[1].")</br>Tinggi(".$nilaiTinggi[2].")</br></div>";
+        
     }
 
+
+    // ini fungsi untuk inferensi, penentuan rules yang dipakai
     function inferensi($karies, $ekonomi, $manis, $imigrasi, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal, $sikatGigi, $susuGula, $topikalFlouride, $periksaGigi, $karangGigi, $gejala)
     {
         //fuzzyfikasi
-        $nilaiRendah = calcAvg($ekonomi, $imigrasi);
-        $nilaiSedang = calcAvg($karies, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal);
-        $nilaiTinggi = calcAvg($manis, $susuGula, $sikatGigi, $topikalFlouride, $periksaGigi, $karangGigi, $gejala);
+        $nilaiRendah = calcAvg($ekonomi, $imigrasi); //memiliki tingkta pengaruh yang rendah
+        $nilaiSedang = calcAvg($karies, $perawatanKhusus, $minumFlour, $bercakPutih, $lubangmbal); //memiliki tingkta pengaruh yang sedang
+        $nilaiTinggi = calcAvg($manis, $susuGula, $sikatGigi, $topikalFlouride, $periksaGigi, $karangGigi, $gejala); //memiliki tingkta pengaruh yang tiggi
 
         hasilfuzzifikasi($nilaiRendah, $nilaiSedang, $nilaiTinggi);
 
@@ -65,8 +74,8 @@
                     }
 
                     if ($minimal[$x] > 0) {
-                        echo "<p>" . $no . ". IF  (Ekonomi OR Imigrasi = " . kondisi($j) . "(" . $nilaiRendah[$j - 1] . ")) AND (Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal = " . kondisi($i) . "(" . $nilaiSedang[$i - 1] . ")) AND (Manis OR Susu Gula OR Sikat Gigi OR Topikal Floure OR Periksa Gigi OR Karang Gigi OR Muncul Gejala = " . kondisi($k) . "(" . $nilaiTinggi[$k - 1] . ")) THAN Resiko = " . $kondisi[$x] . "(" . $minimal[$x] . ")</p>";
-                    }
+                        echo "<div class=\"border\"><p>" . $no . ". IF  (Ekonomi OR Imigrasi = " . kondisi($i) . "(" . $nilaiRendah[$i - 1] . ")) AND (Karies OR Perawatan Khusus OR Minum Flour OR Bercak Putih OR Lubang Tambal = " . kondisi($j) . "(" . $nilaiSedang[$j - 1] . ")) AND (Manis OR Susu Gula OR Sikat Gigi OR Topikal Floure OR Periksa Gigi OR Karang Gigi OR Muncul Gejala = " . kondisi($k) . "(" . $nilaiTinggi[$k - 1] . ")) THAN Resiko = " . $kondisi[$x] . "(" . $minimal[$x] . ")</p></div>";
+                    } //Hasil Penentuan rules yan digunakan
 
 
                     $x++;
@@ -87,13 +96,17 @@
                 $nilai_tinggi = max($minimal[$l], $nilai_tinggi);
             }
         }
+       
         echo "<br><h4><b>Nilai Fuzzy Output: </b></h4>";
-        echo "<p>Resiko Rendah(" . $nilai_rendah . ")</p>";
-        echo "<p>Resiko Sedang(" . $nilai_sedang . ")</p>";
-        echo "<p>Resiko Tinggi( " . $nilai_tinggi . ")</p>";
+        echo "<div class=\"border\"> <p>Resiko Rendah(" . $nilai_rendah . ")</p> <p>Resiko Sedang(" . $nilai_sedang . ")</p><p>Resiko Tinggi( " . $nilai_tinggi . ")</p></div>";
+        // echo "<p>Resiko Rendah(" . $nilai_rendah . ")</p>";
+        // echo "<p>Resiko Sedang(" . $nilai_sedang . ")</p>";
+        // echo "<p>Resiko Tinggi( " . $nilai_tinggi . ")</p>";
 
         //Defuzzifikasi
+        // penentua tingkat resiko gigi berlubang pada balita
         echo '<br><h4><b>Defuzzifikasi</b></h4>';
+        
         echo '<p>Menggunakan metode Centroid Method</p>';
         echo '(1 x ' . $nilai_rendah . ') + (2 x ' . $nilai_sedang . ') + (3 x ' . $nilai_tinggi . ') / (' . $nilai_rendah . ' + ' . $nilai_sedang . ' + ' . $nilai_tinggi . ')';
 

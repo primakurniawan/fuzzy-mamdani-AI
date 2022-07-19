@@ -30,15 +30,19 @@ if (isset($_POST['but_submit'])) {
 
     <link href="./_assets/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./_assets/css/login.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #ebebeb;
-        }
+    body {
+        background-color: #000;
+    }
     </style>
 
 </head>
 
-<body>
+<body style="font-family: 'Martel Sans', sans-serif">
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
@@ -49,15 +53,22 @@ if (isset($_POST['but_submit'])) {
                     <div class="container">
                         <form method="post" action="">
                             <div id="div_login">
-                                <h1>Login</h1>
+                                <p style="font-size:50px;font-weight:bold; color:#6C63FF;">Login
+                                <p>
                                 <div>
-                                    <input class="form-control form-control-lg" type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
+                                    <input class="form-control form-control-lg" type="text" class="textbox"
+                                        id="txt_uname" name="txt_uname" placeholder="Username" />
                                 </div>
+                                <br>
                                 <div>
-                                    <input class="form-control form-control-lg" type="password" class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password" />
+                                    <input class="form-control form-control-lg" type="password" class="textbox"
+                                        id="txt_uname" name="txt_pwd" placeholder="Password" />
                                 </div>
+                                <br>
                                 <div>
-                                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit" name="but_submit" id="but_submit" />
+                                    <input style="background-color:#6C63FF"
+                                        class="btn btn-primary btn-lg btn-block text-white" type="submit" value="Submit"
+                                        name="but_submit" id="but_submit" />
                                 </div>
                             </div>
                         </form>

@@ -8,43 +8,47 @@
     <!-- Bootstrap core CSS -->
     <link href="./_assets/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./_assets/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
 
 
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
         }
+    }
 
-        body {
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
-            background-size: cover;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-        }
+    body {
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('./_assets/img/coverdr.svg');
+        background-size: cover;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        font-family: 'Martel Sans', sans-serif;
+    }
 
-        .lead {
-            color: coral;
-        }
+    .lead {
+        color: coral;
+    }
 
-        h1 {
-            color: coral;
-        }
+    h1 {
+        color: coral;
+    }
 
-        #detail1 {
-            display: none;
-            text-align: left;
-        }
+    #detail1 {
+        display: none;
+        text-align: left;
+    }
     </style>
 
 
@@ -54,28 +58,31 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-white bg-dark">
 
     <?php
+
+    
     include "_fuzzy.php";
 
     ?>
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
-                <h3 class="float-md-start mb-0">Sistem Pakar</h3>
+                <h3 class="float-md-start mb-0">Cegah Lubang</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
+                    <a class="nav-link" href="index.php">Beranda</a>
                     <!-- <a class="nav-link" href="#">Features</a> -->
+                    <a class="nav-link" href="info.php">Informasi</a>
                     <a class="nav-link" href="about.php">Tentang</a>
-                    <a class="nav-link" href="history.php">Histori Pengguna</a>
+                    <a class="nav-link active" aria-current="page" href="history.php">Histori Pengguna</a>
 
                 </nav>
             </div>
         </header>
 
         <main class="px-3">
-            <h1>Hasil</h1>
+            <h1 class="text-center">Hasil</h1>
 
             <div id="detail1">
                 <?php
@@ -90,60 +97,103 @@
                 $hasil = inferensi((int)$_POST["karies"], (int)$_POST["ekonomi"], (int)$_POST["manis"], (int)$_POST["imigrasi"], (int)$_POST["perawatanKhusus"], (int)$_POST["minumFlour"], (int)$_POST["bercakPutih"], (int)$_POST["lubangTambal"],  (int)$_POST["sikatGigi"], (int)$_POST["susuGula"], (int)$_POST["topikalFLouride"], (int)$_POST["memeriksaGigi"], (int)$_POST["karangGigi"], $gejala);
                 $tingkat = "";
                 $saran = "";
+
                 if ($hasil <= 1 + (2 / 3)) {
                     $tingkat = 'Rendah';
-                    $saran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali';
+                    $saran = 'Menjaga kebersihan gigi dan mulut setiap hari, Melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali';
                 } else if ($hasil <= 1 + (4 / 3)) {
                     $tingkat = 'Sedang';
-                    $saran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, melakukan aplikasi flour ke dokter gigi';
+                    $saran = 'Menjaga kebersihan gigi dan mulut setiap hari, Melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, Melakukan aplikasi flour ke dokter gigi';
                 } else {
                     $tingkat = 'Tinggi';
-                    $aran = 'menjaga kebersihan gigi dan mulut setiap hari, melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, melakukan aplikasi flour ke dokter gigi, merawat gigi yang telah rusak';
+                    $saran = 'Menjaga kebersihan gigi dan mulut setiap hari, Melakukan pemeriksaan rutin ke dokter gigi 6 bulan sekali, Melakukan aplikasi flour ke dokter gigi, Merawat gigi yang telah rusak';
                 }
 
 
                 ?>
             </div>
-            <div>
-                <p class="h4">
-                    <?php
-                    echo "Nama Balita " . $_POST["fname"]; ?>
-                    <br>
-                    <?php
-                    echo "Umur " . $_POST["dd"] . " Tahun";
-                    ?>
-                    <br>
-                    <?php
-                    echo "<h3>Tingkat Resiko Gigi Berlubang $tingkat</h3> \n";
-                    echo "<h4 class='lead'>Saran : $saran </h4>";
-                    ?>
-                </p>
-                <button class="btn btn-primary" type="button" id="detailopen">Lebih Lanjut</button>
+
+            <div class="container mt-3">
+
+                <table class="table table-borderless border w-50  text-white mx-auto">
+
+                    <tbody>
+                        <tr>
+                            <th>
+                                Nama
+                            </th>
+                            <td><?php
+                    echo $_POST["fname"]; ?> </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                No HP
+                            </th>
+                            <td><?php
+                    echo $_POST["no"]; ?> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Umur</th>
+                            <td><?php
+                    echo $_POST["dd"]." Tahun"; ?> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Tingkat Risiko</th>
+                            <td><?php
+                    echo $tingkat; ?> </td>
+                        <tr>
+                            <th>Saran</th>
+                            <td><?php
+                            
+                            $listSaran = explode(',', $saran);
+                            $len=sizeof($listSaran);
+                    echo $listSaran[0]; ?> </td>
+                            <?php
+                                            $listSaran = explode(',', $saran);
+                                            $len=sizeof($listSaran);
+                for ($x = 1; $x < $len; $x++) {
+                echo "
+                <tr>
+                <td></td>
+                <td>".$listSaran[$x]."</td></tr>"
+                                        ;}
+                                        ?>
+
+                        </tr>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary" type="button" id="detailopen">Lebih
+                        Lanjut</button> <br>
+                </div>
             </div>
-
-
         </main>
-        <footer class="mt-auto text-white-50">
-            <p>Aplikasi Menggunakan Metode Fuzzy Mamdina</p>
+        <footer class="mt-auto text-center text-white-50">
+            <br>
+            <p>2022© Cegah Lubang</p>
         </footer>
     </div>
 
 
     <script>
-        var detail1 = document.getElementById('detail1')
-        var detailopen = document.getElementById('detailopen')
-        var open = false
-        detailopen.addEventListener('click', e => {
-            e.preventDefault()
-            open = !open
-            if (open) {
-                detail1.style.display = 'block'
-                detailopen.innerText = 'Lebih Sedikit'
-            } else {
-                detail1.style.display = 'none'
-                detailopen.innerText = 'Lebih Lanjut'
-            }
-        })
+    var detail1 = document.getElementById('detail1')
+    var detailopen = document.getElementById('detailopen')
+    var open = false
+    detailopen.addEventListener('click', e => {
+        e.preventDefault()
+        open = !open
+        if (open) {
+            detail1.style.display = 'block'
+            detailopen.innerText = 'Lebih Sedikit'
+        } else {
+            detail1.style.display = 'none'
+            detailopen.innerText = 'Lebih Lanjut'
+        }
+    })
     </script>
 </body>
 
@@ -153,7 +203,7 @@
 // Check If form submitted, insert form data into users table.
 $name = $_POST['fname'];
 $age = $_POST['dd'];
-$hp = $_POST['nohp'];
+$hp = $_POST['no'];
 $karies = (int)$_POST["karies"];
 $ekonomi = (int)$_POST["ekonomi"];
 $manis = (int)$_POST["manis"];
@@ -169,12 +219,11 @@ $memeriksaGigi = (int)$_POST["memeriksaGigi"];
 $karangGigi = (int)$_POST["karangGigi"];
 $Lainnya = $_POST['lain'];
 
-
 // include database connection file
 include_once("config.php");
 // Check username is exists or not
 $query = "SELECT count(*) as allcount FROM history 
-          WHERE nama='" . $name . "' && umur='" . $age . "' && 
+          WHERE nama='" . $name . "' && umur='" . $age . "' && nohp='".$hp."' &&
           karies='" . $karies . "' && imigrasi='" . $imigrasi . "'";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
