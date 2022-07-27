@@ -163,6 +163,7 @@
                         <span class="step"><i class="far "></i>13</span>
                         <span class="step"><i class="fa "></i>14</span>
                         <span class="step"><i class="fa "></i>15</span>
+                        <span class="step"><i class="fa "></i>16</span>
                     </div>
                     <div class="tab">
                         <h5>Masukkan nama</h5>
@@ -577,7 +578,32 @@
                                 oninput="this.className = ''" name="lain"></p>
                         <h6>Ahli Pakar: drg. Kurnia Octaviani Pasaribu</h6>
                     </div>
-
+                    <div class="tab">
+                        <?php
+                        include_once("config.php");
+                        $conn = mysqli_query($conn, "SELECT lainnya FROM history");
+                        $lainnya = array();
+                
+                        while ($user_data = mysqli_fetch_array($conn)) {
+                        array_push($lainnya, $user_data['lainnya']);
+                       }
+                        ?>
+                        <h5>Apakah Ada Gejala Lainnya Dibawah ini</h5>
+                        <?php
+                        foreach ($lainnya as $value) {   
+                            if ($value != "-")  {
+                        echo '<div class="form-check">'; ?>
+                           <input class="form-check-input" type="checkbox" name="lainnyaa[]" value='<?php echo $value ?>'>
+                         <?php  echo '<label class="form-check-label" for="check1">';
+                            echo $value;
+                            echo '</label>';
+                        echo '</div>';
+                        }
+                        }
+                        ?>
+                        <br><br>
+                        <h6>Ahli Pakar: drg. Kurnia Octaviani Pasaribu</h6>
+                    </div>
                     <div style="overflow:auto;" id="nextprevious">
                         <div style="float:right;">
                             <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i

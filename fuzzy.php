@@ -238,10 +238,22 @@ if (isset($_POST['checkbox'])) {
         }
     }
 }
+if (empty($lainnyaa)) {
+  $chk="-";
+} else {
+  $lainnyaa1 = $_POST['lainnyaa'];
+$lainnyaa = array();
+    $chk="";  
+    foreach($lainnyaa1 as $chk1)  
+       {  
+          $chk.= $chk1.",";  
+       }  
+}
+
 
 // insert new record
 if ($allcount == 0) {
-    $sql = "INSERT INTO history(nama,umur, nohp, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, lainnya, hasil" . $str . ") VALUES('$name',$age, $hp, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi,'$Lainnya',$hasil" . $strNum . ")";
+    $sql = "INSERT INTO history(nama,umur, nohp, karies, ekonomi, manis, imigrasi, perawatan_khusus, minum_flour, bercak_putih, lubang_tambal,  sikat_gigi, susu_gula, topikal_fLouride, memeriksa_gigi, karang_gigi, lainnya, lainnya2, hasil" . $str . ") VALUES('$name',$age, $hp, $karies,$ekonomi,$manis,$imigrasi,$perawatanKhusus,$minumFlour,$bercakPutih,$lubangTambal,$sikatGigi,$susuGula,$topikalFLouride,$memeriksaGigi,$karangGigi,'$Lainnya','$chk' ,$hasil" . $strNum . ")";
     $conn->query($sql);
 }
 // Insert user data into table
